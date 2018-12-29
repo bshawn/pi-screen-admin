@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import NavMenu from './NavMenu';
 import { Link } from 'react-router-dom';
+import NavMenu from './NavMenu';
+import Logo from './Logo';
 
 class Navbar extends Component {
   constructor(props) {
@@ -13,11 +14,7 @@ class Navbar extends Component {
       <nav className="navbar is-transparent" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <Link to="/" className="navbar-item has-text-primary">
-            <span className="icon is-large">
-              <i className="fas fa-lg fa-tv"></i>
-            </span>
-            <span>&nbsp;</span>
-            <span className="title is-4 has-text-primary">Signage</span>
+            <Logo />
           </Link>
 
           <a role="button" className={this.state.menuVisible ? "navbar-burger burger is-active" : "navbar-burger burger"} aria-label="menu" aria-expanded="false" onClick={this.toggleMenu}>
