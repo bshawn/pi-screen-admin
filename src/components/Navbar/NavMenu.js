@@ -24,6 +24,9 @@ class NavMenu extends Component {
               <a className="button is-light">
                 Log in
               </a>
+              <Link to="/help" className="button">
+                <span>Help</span>
+              </Link>
             </div>
           </div>
         </div>
