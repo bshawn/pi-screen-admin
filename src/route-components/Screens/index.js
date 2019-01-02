@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ScreenList from './ScreenList';
+import ScreenAdminForm from './ScreenAdminForm';
 
 class Screens extends Component {
   render() {
@@ -14,13 +16,13 @@ class Screens extends Component {
       // </div>
       <div class="columns">
         <div class="column is-3 is-hidden-mobile">
-          <h1 class="title">List 3col</h1>
+          <ScreenList />
         </div>
         <div class="column is-hidden-mobile">
-          <h1 class="title">Content</h1>
+          <ScreenAdminForm />
         </div>
         <div class="column is-hidden-tablet">
-          <h1 class="title">List</h1>
+          <ScreenList />
         </div>
       </div>
     );
