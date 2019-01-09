@@ -21,7 +21,7 @@ class Screens extends Component {
           <ScreenAdminForm screenId={this.state.selectedScreenId} />
         </div>
         <div className="column is-hidden-tablet">
-          <ScreenList screenId={this.state.selectedScreenId} />
+          <ScreenList screenId={this.state.selectedScreenId} onSelection={this.screenIdChanged} />
         </div>
       </div>
     );
