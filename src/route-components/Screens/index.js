@@ -3,29 +3,33 @@ import ScreenList from './ScreenList';
 import ScreenAdminForm from './ScreenAdminForm';
 
 class Screens extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedScreenId: null
+    };
+  }
+
   render() {
     return (
-      // <div class="container">
-      //   <body>
-      //     <section class="section">
-      //       <div class="container">
-      //         <h1 class="title">Screens</h1>
-      //       </div>
-      //     </section>
-      //   </body>
-      // </div>
       <div class="columns">
         <div class="column is-3 is-hidden-mobile">
-          <ScreenList />
+          <ScreenList screenId={this.state.selectedScreenId} onSelection={this.screenIdChanged} />
         </div>
         <div class="column is-hidden-mobile">
-          <ScreenAdminForm />
+          <ScreenAdminForm screenId={this.state.selectedScreenId} />
         </div>
         <div class="column is-hidden-tablet">
-          <ScreenList />
+          <ScreenList screenId={this.state.selectedScreenId} />
         </div>
       </div>
     );
+  }
+
+  screenIdChanged = (newScreenId) => {
+    this.setState({
+      selectedScreenId: newScreenId
+    });
   }
 }
 
