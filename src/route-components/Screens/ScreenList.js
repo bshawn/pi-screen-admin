@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './screens.css';
+import './ScreenListItem';
+import ScreenListItem from './ScreenListItem';
 
 class ScreenList extends Component {
   constructor(props) {
@@ -31,19 +32,13 @@ class ScreenList extends Component {
         <ul className="menu-list">
 
           {this.state.screens.map((screen) =>
-
-            <li key={screen.id}>
-              <a className={screen.id === this.state.activeScreenId ? "is-active" : ""}
-                onClick={(e) => this.screenClicked(screen.id, e)}>
-                <h1 className="title is-5">
-                  {screen.name}
-                </h1>
-                <h2 className="subtitle is-6">
-                  {screen.location}
-                </h2>
-              </a>
-            </li>
-
+            <ScreenListItem
+              key={screen.id}
+              id={screen.id}
+              name={screen.name}
+              location={screen.location}
+              isActive={screen.id === this.state.activeScreenId}
+              onClick={this.screenClicked} />
           )}
 
         </ul>
