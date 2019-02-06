@@ -18,12 +18,12 @@ class NavMenu extends Component {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <a className="button is-primary">
+              <button className="button is-primary">
                 <strong>Sign up</strong>
-              </a>
-              <a className="button is-light">
+              </button>
+              <button className="button is-light">
                 Log in
-              </a>
+              </button>
               <Link to="/help" className="button is-info is-inverted">
                 <span>Help</span>
               </Link>

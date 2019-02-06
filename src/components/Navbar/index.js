@@ -10,6 +10,8 @@ class Navbar extends Component {
   }
 
   render() {
+    const menuButtonClass = this.state.menuVisible ? 'navbar-burger burger is-active' : 'navbar-burger burger';
+
     return (
       <nav className="navbar is-transparent" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
@@ -17,7 +19,7 @@ class Navbar extends Component {
             <Logo />
           </Link>
 
-          <a role="button" className={this.state.menuVisible ? "navbar-burger burger is-active" : "navbar-burger burger"} aria-label="menu" aria-expanded="false" onClick={this.toggleMenu}>
+          <a role="button" className={menuButtonClass} aria-label="menu" aria-expanded="false" onClick={this.toggleMenu}>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
