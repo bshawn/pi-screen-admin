@@ -13,7 +13,7 @@ class Screens extends Component {
   }
 
   render() {
-    const { match, location } = this.props;
+    const { match } = this.props;
 
     return (
       <div className="columns">
