@@ -16,16 +16,14 @@ class Home extends Component {
             </div>
           </div>
         </section>
-        <body>
-          <section className="section">
-            <div className="container">
-              <h1 className="title">Welcome</h1>
-              <h2 className="subtitle">
-                Welcome to the Digital Signage <strong>Administrator Portal</strong>
-              </h2>
-            </div>
-          </section>
-        </body>
+        <section className="section">
+          <div className="container">
+            <h1 className="title">Welcome</h1>
+            <h2 className="subtitle">
+              Welcome to the Digital Signage <strong>Administrator Portal</strong>
+            </h2>
+          </div>
+        </section>
       </div>
     );
   }
