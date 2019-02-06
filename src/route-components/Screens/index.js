@@ -18,13 +18,14 @@ class Screens extends Component {
     return (
       <div className="columns">
         <div className="column is-3 is-hidden-mobile">
-          <ScreenList match={match} location={location} />
+          <Route path={`${match.path}`} component={ScreenList} />
         </div>
         <div className="column is-hidden-mobile">
           <Route path={`${match.path}/:id`} component={ScreenAdminForm} />
         </div>
         <div className="column is-hidden-tablet">
-          <ScreenList match={match} location={location} />
+          <Route path={`${match.path}`} exact component={ScreenList} />
+          <Route path={`${match.path}/:id`} component={ScreenAdminForm} />
         </div>
       </div>
     );
