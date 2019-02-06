@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './screens.css';
 import ScreenList from './ScreenList';
-import ScreenAdminForm from './ScreenAdminForm';
+import ScreenAdminForm from './Screen';
+import { Route } from 'react-router-dom';
 
 class Screens extends Component {
   constructor(props) {
@@ -12,25 +13,21 @@ class Screens extends Component {
   }
 
   render() {
+    const { match, location } = this.props;
+
     return (
       <div className="columns">
         <div className="column is-3 is-hidden-mobile">
-          <ScreenList screenId={this.state.selectedScreenId} onSelection={this.screenIdChanged} />
+          <ScreenList match={match} location={location} />
         </div>
         <div className="column is-hidden-mobile">
-          <ScreenAdminForm screenId={this.state.selectedScreenId} />
+          <Route path={`${match.path}/:id`} component={ScreenAdminForm} />
         </div>
         <div className="column is-hidden-tablet">
-          <ScreenList screenId={this.state.selectedScreenId} onSelection={this.screenIdChanged} />
+          <ScreenList match={match} location={location} />
         </div>
       </div>
     );
-  }
-
-  screenIdChanged = (newScreenId) => {
-    this.setState({
-      selectedScreenId: newScreenId
-    });
   }
 }
 
