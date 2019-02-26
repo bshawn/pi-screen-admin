@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import fire from '../../fire';
 
 class ScreenList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      screens: [
-        {
-          id: '00000000-0000-0000-0000-000000000000',
-          name: 'Screen 1',
-          location: 'Screen 1 location'
-        },
-        {
-          id: '00000000-0000-0000-0000-000000000001',
-          name: 'Screen 2',
-          location: 'Screen 2 location'
-        }
-      ]
+      screens: []
     };
+  }
+
+  componentWillMount() {
+    /* Create reference to screens in Firebase Database */
+    let query = fire.firestore().collection('screens').orderBy('location', 'asc').limit(100);
+    console.log('query', query);
+    query.onSnapshot(snapshot => {
+      // Update React state when screen is added or removed at Firestore.
+      snapshot.docChanges().forEach(change => {
+        if (change.type !== 'removed') {
+          let screenData = change.doc.data();
+          let screen = { id: change.doc.id, name: screenData.name, location: screenData.location };
+          this.setState({ screens: [screen].concat(this.state.screens) });
+        }
+      });
+    })
   }
 
   render() {
